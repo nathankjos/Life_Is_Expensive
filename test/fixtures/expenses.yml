@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  amount: 1.5
+  daily: false
+  weekly: false
+  monthly: false
+  bi_yearly: false
+  user: one
+
+two:
+  name: MyString
+  amount: 1.5
+  daily: false
+  weekly: false
+  monthly: false
+  bi_yearly: false
+  user: two

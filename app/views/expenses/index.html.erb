@@ -1,0 +1,7 @@
+<h1><%= current_user.name %>'s Expense Tracker</h1>
+<h3>Your Expenses</h3> <%= link_to  "New Expense", new_expense_path %>
+<% @expenses.each do |e|%>
+    <ul>
+        <li><%= link_to  e.name, "/expenses/#{e.id}" %> - <%= number_to_currency(e.amount) %><%= link_to  'Delete', expense_path(e.id), method:"delete"%></li>
+    </ul>
+<% end %>
