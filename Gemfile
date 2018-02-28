@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem "chartkick"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")

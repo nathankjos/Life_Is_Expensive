@@ -1,5 +1,5 @@
 <h1><%= @user.name %></h1>
 
 <% if @user == current_user %>
-    <%= link_to  "Add New Expense", new_expense_path %>
+    <%= link_to  "Edit Profile", edit_user_path %>
 <% end %>

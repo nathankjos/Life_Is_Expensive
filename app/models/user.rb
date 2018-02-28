@@ -3,6 +3,7 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
-    validates :password, length: { in: 6..20 }
+    validates :budget, presence: true
+    # validates :password, length: { in: 5..20 }
     has_many :expenses, dependent: :destroy
 end

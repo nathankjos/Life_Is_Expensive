@@ -3,9 +3,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    if logged_in?
-      redirect_to expenses_path
-    end
+    # if logged_in?
+    #   redirect_to expenses_path
+    # else
+      # redirect_to new_user_path
+    # end
   end
 
   def show
@@ -19,18 +21,26 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    @user.name = params[:user][:name]
+    # @user.name = params[:user][:name]
     if @user.save
-    redirect_to root_path
+    session[:user_id] = @user.id
+    redirect_to edit_user_path(current_user.id)
     else
       redirect_to new_user_path
     end
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user.id)
+    else
+      redirect_to edit_user_path @user.id
+    end
   end
 
   def destroy
@@ -38,6 +48,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    return params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    return params.require(:user).permit(:name, :email, :password, :password_confirmation, :budget)
   end
 end

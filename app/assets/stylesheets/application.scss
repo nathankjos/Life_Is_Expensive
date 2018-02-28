@@ -1,1 +1,16 @@
-@import 'bootstrap'
+@import 'bootstrap';
+#totals {
+float: right;
+}
+#your_expenses {
+    float: left;
+}
+#new_expense {
+    float: left;
+}
+// li {
+//     z-index: 1;
+// }
+// #budget_chart {
+//     z-index: 0;
+// }

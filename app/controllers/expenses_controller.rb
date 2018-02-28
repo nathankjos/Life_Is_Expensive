@@ -1,12 +1,20 @@
 class ExpensesController < ApplicationController
   # before_action :authorize_expense_view
   def index
+    @a = 0
     @expenses = Expense.all
+    @expArr = []
+    @transpo = Expense.where(name: "Transportation")
+    @food = Expense.where(name: "Food")
+    @t_amount = 0
+    @f_amount = 0
+    if logged_in? 
+    @budget = current_user.budget
+    end
   end
 
   def show
-    @expenses = Expense.all
-    @expense = Expense.find params[:id]
+    @expense = Expense.find params[:id].where(:user_id == current_user)
     @user = User.find(@expense.user_id)
   end
 
@@ -17,7 +25,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.new expense_params
     @expense.save
-    redirect_to root_path
+    redirect_to expenses_path
   end
 
   def edit
