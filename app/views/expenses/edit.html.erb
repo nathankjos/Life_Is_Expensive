@@ -15,7 +15,7 @@
                   <%= f.text_field :category, class: "form-control", placeholder: "Category" %>
                 </div>
                 <%= f.submit "Update Expense", class: "btn btn-primary" %>
-            <%= button_to  "Delete Expense", expense_path(@expense.id), method:"delete", data: {confirm: "Delete Expense?"},class: "btn btn-danger"  %>            
               <% end %>
+            <div class= "deleteBtn"><%= button_to  "Delete Expense", expense_path(@expense.id), method:"delete", data: {confirm: "Delete Expense?"},class: "btn btn-danger"  %></div>            
             </div>
           </div> 

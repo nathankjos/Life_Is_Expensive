@@ -15,7 +15,7 @@
               <%= f.text_field :budget, class: "form-control", placeholder: "Monthly Budget Amount" %>
             </div>
             <%= f.submit "Update Account", class: "btn btn-primary" %>
-            <%= button_to  "Delete Account", user_path(current_user.id), method:"delete", data: {confirm: "Are you sure you want to delete your account?"},class: "btn btn-danger"  %>            
-          <% end %>
-        </div>
+            <% end %>
+            <div class = "deleteBtn"><%= button_to  "Delete Account", user_path(current_user.id), method:"delete", data: {confirm: "Are you sure you want to delete your account?"},class: "btn btn-danger"  %></div>
+          </div>
       </div>
