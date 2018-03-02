@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     # @user.name = params[:user][:name]
     if @user.save
     session[:user_id] = @user.id
-    redirect_to edit_user_path(current_user.id)
+    redirect_to expenses_path
     else
       redirect_to new_user_path
     end
