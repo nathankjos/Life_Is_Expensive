@@ -12,7 +12,7 @@ HMTL, CSS, Ruby, Rails
 
 The application's layout was created with HTML within ruby files, was styled with css, and the logic and navigation was build with rails.
 
-###User Stories
+### User Stories
 As a user, I can Create an account
 
 As a user, I can log in and update my account, or delete it if necessary, and set my budget
@@ -23,7 +23,7 @@ As a user, I can edit, add, and delete expenses as I see necessary.
 
 As a user, I can see all of my expenses, but my expenses aren't accessible by anyone else
 
-###Approach
+### Approach
 I started out planning out my models and controllers in trello, then generated the models, controllers, and updated the router.
 
 I made sure each of my models had full CRUD functioning step by step with basic static data, and tested out if anything had broken in the process.
