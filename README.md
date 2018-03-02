@@ -1,6 +1,8 @@
 # Life Is Expensive
 
-## a Budgeting tool and expense tracker
+<img width="988" alt="screenshot" src="/ExpenseTrackerSC.png">
+
+## A Budgeting tool and expense tracker
 
 Enter in expenses you expect to have, and see how much you have left over, then add items you would like to buy in the future to see if you will have enough to do so, and how much money you will have left over.
 
