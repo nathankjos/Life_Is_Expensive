@@ -1,6 +1,6 @@
 # Life Is Expensive
 
-<img width="988" alt="screenshot" src="/ExpenseTrackerSC.png">
+<!-- <img width="988" alt="screenshot" src="/ExpenseTrackerSC.png"> -->
 
 ## A Budgeting tool and expense tracker
 
