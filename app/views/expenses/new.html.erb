@@ -10,7 +10,10 @@
         <div class="form-group">
           <label>How much is it for?</label>
           <%= f.text_field :amount, class: "form-control", placeholder: "Cost" %>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label>Type of Expense?</label>
+          <%= f.text_field :category, class: "form-control", placeholder: "Category" %>
         </div>
         <%= f.submit "Add Expense", class: "btn btn-primary" %>
       <% end %>

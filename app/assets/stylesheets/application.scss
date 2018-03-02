@@ -1,16 +1,98 @@
 @import 'bootstrap';
+h1 {
+    display: inline-block;
+    border-radius: 10px;
+}
+html {
+    height: 100%;
+}
+#exp {
+    color: rgba(204, 57, 57, 0.767);
+}
+#budget {
+    color: rgb(11, 122, 35);
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px;
+    border-radius: 10px;
+}
+#expense_total {
+    color: rgba(177, 14, 14, 0.726);
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px;
+    border-radius: 10px;
+}
+#budget_remaining {
+    color: rgb(60, 110, 218);
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px;
+    border-radius: 10px;
+}
+#nav {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    background: rgba(98, 18, 189, 0.5);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+li {
+    list-style: none;
+}
+a {
+    color: rgb(116, 250, 255); 
+}
+button {
+    background: rgba(98, 18, 189, 0.378);
+    border: 1px solid rgba(98, 18, 189, 0.678);
+    border-radius: 8px;
+    color: rgba(98, 18, 189, 0.878);
+}
+body {
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(28, 83, 145, 0.6), rgba(88, 33, 139, 0.6));
+    color: rgb(62, 0, 143);
+}
 #totals {
 float: right;
+text-align: right;
+vertical-align: center;
+margin-right: 25%;
 }
-#your_expenses {
-    float: left;
+// #your_expenses {
+//     float: left;
+// }
+#new_expense_btn {
+    float: right;
 }
-#new_expense {
-    float: left;
+#budget_chart {
+    height:325px;
+    top:25px;
+    right:25px;
+    position: fixed;
+    border: 0px;
+    width: 400px;
+    border-radius: 30px;
+}
+
+.clear {
+    clear: both;
+}
+.categories {
+    display: inline-block;
+    width: 40%;
+    margin: 5px;
+}
+h1, .categories {
+    background: rgba(255, 255, 255, 0.25);
+    border: 0px;
+}
+#budget_chart {
+    background: rgba(255, 255, 255, 0.5);
+    border: 0px;
 }
 // li {
 //     z-index: 1;
 // }
 // #budget_chart {
 //     z-index: 0;
-// }
+// 

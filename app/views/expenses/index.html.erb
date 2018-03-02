@@ -1,39 +1,59 @@
 <h1><%= current_user.name %>'s Expense Tracker</h1>
 <h3 id='your_expenses'>Your Expenses
     <% @expenses.each do |t| %>
-        <% @a = @a + t.amount %>
+        <% @expTotal = @expTotal + t.amount %>
     <% end %>
 </h3>
-<% @rBudget = @budget - @a %></p>
+<%# total_hash = {Budget_Left_Over: @rBudget} %>
+<div class="clear"></div>
+<% @rBudget = @budget - @expTotal %></p>
+<div id = "totalsWBtn">
 <div id="totals">
-    <h3 id = "expense_total"> Total Expenses = <%= @a %> </h3> 
-    <h3 id = "budget"> Starting Budget = <%= @budget %></h3>
-    <h3 id = "budget_remaining"> Remaining Funds = <%= @rBudget %></h3>
+    <h3 id = "budget"> Starting Budget = <%= number_to_currency(@budget) %></h3>
+    <h3 id = "expense_total"> Total Expenses = <%= number_to_currency(@expTotal) %> </h3> 
+    <h3 id = "budget_remaining"> Remaining Funds = <%= number_to_currency(@rBudget) %></h3>
+ <h5><button id= 'new_expense'><%= link_to  "New Expense", new_expense_path %></button></h5></br>
 </div>
- <button id= 'new_expense'><%= link_to  "New Expense", new_expense_path %></button>
-
-<% @transpo.each do |t| %>
- <% @t_amount = @t_amount + t.amount.to_i %>
+</div>
+<div class="clear"></div>
+<% total_hash = {"Budget Remaining": @rBudget} %>
+<% @expense_hash.each do |category, expenses| %>
+    <div class = "categories">
+        <h2><%= category %></h2>
+        <% @total = 0 %>
+        <% expenses.each do |e| %>
+        <ul>
+            <% @total = @total + e.amount %>
+            <li id = "exp"><%= link_to  e.name, "/expenses/#{e.id}/edit"%> - <%= number_to_currency(e.amount) %>   <%= link_to  'Delete', expense_path(e.id), method:"delete", data: {confirm: "Delete Expense?"}%></li>
+        </ul>
+        <% end %>
+        <p>Total Spent - <%= number_to_currency(@total) %></p>
+        <% total_hash[category] = @total %>
+    </div>
 <% end %>
 
-<% @food.each do |f| %>
- <% @f_amount = @f_amount + f.amount.to_i %>
-<% end %>
+
+<div id = "chart"><div id = 'budget_chart'><%= pie_chart (total_hash)%></div>
+
+<%# @transpo.each do |t| %>
+ <%# @t_amount = @t_amount + t.amount.to_i %>
+<%# end %>
+
+<%# @food.each do |f| %>
+ <%# @f_amount = @f_amount + f.amount.to_i %>
+<%# end %>
 
 
-
-<div id = 'budget_chart'><%= pie_chart ({Transportation: @t_amount, Food: @f_amount, Budget_Left_Over: @rBudget}) %></div>
-<% @expenses.each do |i|%>
-    <% if i.user_id == current_user %>  
+<!-- <div id = 'budget_chart'><%= pie_chart ({Transportation: @t_amount, Food: @f_amount, Budget_Left_Over: @rBudget}) %></div> -->
+<!-- <% @expenses.each do |i|%>
+    <% if i.user_id == current_user.id %>  
         <% @expArr.push(i)%>
     <% end %>
 <% end %>
 <% if @expArr.length > 0%>
+<ul>
     <% @expArr.each do |e| %>
-        <ul>
-            <li><%= link_to  e.name, "/expenses/#{e.id}" %> - <%= number_to_currency(e.amount) %><%= link_to  'Delete', expense_path(e.id), method:"delete"%></li>
-        </ul>
+            <li><%= link_to  e.name, "/expenses/#{e.id}/edit" %> - <%= number_to_currency(e.amount) %> - <%= e.category%><%= link_to  'Delete', expense_path(e.id), method:"delete", data: {confirm: "Delete Expense?"}%></li>
     <% end %>
-<% end %>
-
-
+</ul>
+<% end %> -->
