@@ -4,6 +4,7 @@
         <% @expTotal = @expTotal + t.amount %>
     <% end %>
 </h3>
+ <h5><button id= 'new_expense'><%= link_to  "New Expense", new_expense_path %></button></h5></br>
 <%# total_hash = {Budget_Left_Over: @rBudget} %>
 <div class="clear"></div>
 <% @rBudget = @budget - @expTotal %></p>
@@ -12,11 +13,11 @@
     <h3 id = "budget"> Starting Budget = <%= number_to_currency(@budget) %></h3>
     <h3 id = "expense_total"> Total Expenses = <%= number_to_currency(@expTotal) %> </h3> 
     <h3 id = "budget_remaining"> Remaining Funds = <%= number_to_currency(@rBudget) %></h3>
- <h5><button id= 'new_expense'><%= link_to  "New Expense", new_expense_path %></button></h5></br>
 </div>
 </div>
 <div class="clear"></div>
 <% total_hash = {"Budget Remaining": @rBudget} %>
+<div id= "allExpenses">
 <% @expense_hash.each do |category, expenses| %>
     <div class = "categories">
         <h2><%= category %></h2>
@@ -31,7 +32,7 @@
         <% total_hash[category] = @total %>
     </div>
 <% end %>
-
+</div>
 
 <div id = "chart"><div id = 'budget_chart'><%= pie_chart (total_hash)%></div>
 
